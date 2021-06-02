@@ -1,34 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# mobx + nextJS 项目模板
+- react 17
+- mobx 6 （不推荐使用装饰器语法）
+- sass 支持
+- 不同环境变量配置在 config文件夹中
 
-## Getting Started
 
-First, run the development server:
+## 一些知识点： 
+1. 项目有 getServerSideProps 方法就无法做静态导出
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+2. 目前 _app.js 不支持 Next.js 的 数据获取方法，例如 getStaticProps 或 getServerSideProps。可以使用 getInitialProps
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. mobx6版本以后，要是得数据响应式变化，得在构造函数加： makeObservable(this) 方法
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+4. enableStaticRendering 方法的作用
+- 由于Next.js首屏渲染是在服务端执行的，MobX所创建的状态是可观察的对象，使用MobX创建的可观察对象会在内存中使用listener来监听对象的变化，但实际上在服务端是没有必要监听变化的，因为首屏渲染完成得到html文件后，后续的工作都由客户端接手，所以如果在服务端的对象是可观察的，将有可能造成内存泄漏，所以我们使用useStaticRendering方法，当该文件在服务端执行时，让MobX创建静态的普通js对象即可
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+5. next.js项目中如何配置不同环境的变量
+> https://www.bootschool.net/article/5c5d5a53f60a310b0e6f3411/how-to-config-environment-in-next.js-project
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+6. next中不能再页面中直接引入 非模块化css
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 值得参考的文章
+- 搭建 Next.js + TS + Antd + Redux + Storybook 企业级项目脚手架 https://segmentfault.com/a/1190000038644942
+- Next.js部署web同构直出应用全指南（MobX + TypeScript） https://juejin.cn/post/6844903990396715022
+- 用mobx构建大型项目的最佳实践 https://juejin.cn/post/6844903775623184398
