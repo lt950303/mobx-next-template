@@ -2,7 +2,14 @@
 - react 17
 - mobx 6 （不推荐使用装饰器语法）
 - sass 支持
+- antd 按需加载
 - 不同环境变量配置在 config文件夹中
+
+## todos
+- eslint / StyleLint / Prettier
+- husky 与 lint-staged
+- commitlint
+- Jest 单元测试
 
 
 ## 一些知识点： 

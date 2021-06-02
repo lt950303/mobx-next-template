@@ -1,13 +1,13 @@
 import App from "next/app";
 import React from "react";
-import { initializeStore, Store } from "../stores";
+import { initializeStore, Store } from "/src/stores";
 import { Provider } from "mobx-react";
 import { ConfigProvider } from "antd";
 // 其实时间日期也要处理 中-英文
 // https://ant.design/docs/react/getting-started-cn
 import zhCN from 'antd/lib/locale/zh_CN';
 import "antd/dist/antd.css";
-import "/styles/home.scss";
+import "/src/styles/home.scss";
 class MyApp extends App {
 	mobxStore = undefined;
 

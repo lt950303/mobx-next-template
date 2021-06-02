@@ -1,9 +1,9 @@
 import Head from "next/head";
-import styles from "/styles/home.module.scss";
+import styles from "/src/styles/home.module.scss";
 import { inject, observer } from "mobx-react";
 import Link from "next/link";
 import { Component } from "react";
-import Test from "../components/Test";
+import Test from "/src/components/Test";
 import getConfig from 'next/config'
 
 const { publicRuntimeConfig, serverRuntimeConfig } = getConfig()
