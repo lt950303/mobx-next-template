@@ -3,6 +3,8 @@
 - mobx 6 （不推荐使用装饰器语法）
 - sass 支持
 - antd 按需加载
+- autoprefix 支持
+- sass 的全局变量支持
 - 不同环境变量配置在 config文件夹中
 
 ## todos
@@ -25,9 +27,12 @@
 5. next.js项目中如何配置不同环境的变量
 > https://www.bootschool.net/article/5c5d5a53f60a310b0e6f3411/how-to-config-environment-in-next.js-project
 
-6. next中不能再页面中直接引入 非模块化css
+6. next中不能再页面中直接引入 非模块化css（todo: 尝试是否可用less完成这个问题）
+7. next中可以在任意位置引入第三方模块的的非 cssModules的css
+
 
 ### 值得参考的文章
 - 搭建 Next.js + TS + Antd + Redux + Storybook 企业级项目脚手架 https://segmentfault.com/a/1190000038644942
 - Next.js部署web同构直出应用全指南（MobX + TypeScript） https://juejin.cn/post/6844903990396715022
 - 用mobx构建大型项目的最佳实践 https://juejin.cn/post/6844903775623184398
+- [Next.js] 简化 CSS 开发  https://juejin.cn/post/6850418113062649869

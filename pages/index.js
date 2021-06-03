@@ -6,6 +6,8 @@ import { Component } from "react";
 import Test from "/src/components/Test";
 import getConfig from 'next/config'
 
+// import "/src/styles/home.scss";
+
 const { publicRuntimeConfig, serverRuntimeConfig } = getConfig()
 
 class Home extends Component {
@@ -21,6 +23,8 @@ class Home extends Component {
 					<h1>mobx-next11-class</h1>
 					<h2>{UserStore.user.name}</h2>
 					<h2>{UserStore.user.age}</h2>
+					<h2 className="test2">{UserStore.user.name}</h2> 
+					<h2 className={styles.test2}>{UserStore.user.name}</h2> 
           <h2 className={styles.test2}><Test user={UserStore.user} /></h2>
 					<h4>{ JSON.stringify(publicRuntimeConfig)}</h4>
 					<h3>
