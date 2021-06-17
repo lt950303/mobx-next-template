@@ -6,6 +6,7 @@
 - autoprefix 支持
 - sass 的全局变量支持
 - 不同环境变量配置在 config文件夹中
+- axios 请求封装
 
 ## todos
 - eslint / StyleLint / Prettier
@@ -30,9 +31,16 @@
 6. next中不能再页面中直接引入 非模块化css（todo: 尝试是否可用less完成这个问题）
 7. next中可以在任意位置引入第三方模块的的非 cssModules的css
 
+8. 如何在nextjs项目中使用 axios 这类请求库
+- 请求会发生在 服务端+客户端， 如何保证他们 cookie或者 token的验证
+  - 像在 node 端是肯定没有 XMLHttPRequest 对象的
+- 如何 利用 mobx 存储 token信息，然后让请求携带
+
+9. 如何决定哪些数据服务端渲染，哪些数据客户端渲染
 
 ### 值得参考的文章
 - 搭建 Next.js + TS + Antd + Redux + Storybook 企业级项目脚手架 https://segmentfault.com/a/1190000038644942
 - Next.js部署web同构直出应用全指南（MobX + TypeScript） https://juejin.cn/post/6844903990396715022
 - 用mobx构建大型项目的最佳实践 https://juejin.cn/post/6844903775623184398
 - [Next.js] 简化 CSS 开发  https://juejin.cn/post/6850418113062649869
+- Next.js 实践总结 - 登录授权验证最佳方案 https://juejin.cn/post/6844903959635705870#heading-4
